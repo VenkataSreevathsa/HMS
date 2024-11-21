@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You For Consulting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* CSS styling */
+        body {
+            font-family: 'Pacifico', cursive; /* Special font */
+            background: linear-gradient(45deg, #FF6B6B, #FFE66D, #8CE8FF); /* Multicolor background */
+            background-size: 600% 600%;
+            animation: gradientAnimation 10s ease infinite;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .thank-you {
+            text-align: center;
+            color: #fff; /* White text color */
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 24px;
+        }
+
+        .animated-heart {
+            animation: heartbeat 1s infinite;
+            font-size: 72px;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you">
+        <h1>Thank You!</h1>
+        <p>Your submission has been received.</p>
+        <p class="animated-heart">❤️</p>
+    </div>
+</body>
+</html>

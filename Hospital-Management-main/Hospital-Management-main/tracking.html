@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindWell - Track Your Wellbeing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .mood-tracker {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .mood-selector {
+      display: flex;
+      gap: 10px;
+    }
+
+    .mood-button {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .mood-button:hover {
+      background-color: #eee;
+    }
+
+    .mood-button.happy {
+      background-color: #fffaeb;
+    }
+
+    .mood-button.neutral {
+      background-color: #e0e0e0;
+    }
+
+    .mood-button.sad {
+      background-color: #f0f0f0;
+    }
+
+    .mood-history {
+      flex-grow: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MindWell</h1>
+    <p>Track Your Wellbeing</p>
+  </header>
+  <main>
+    <section class="mood-tracker">
+      <h2>Mood Tracker</h2>
+      <div class="mood-selector">
+        <button class="mood-button happy" data-mood="happy"> Happy</button>
+        <button class="mood-button neutral" data-mood="neutral" > Neutral</button>
+        <button class="mood-button sad" data-mood="sad"> Sad</button>
+      </div>
+      <div class="mood-history">
+        <h2>Mood History (Today)</h2>
+        <ul id="mood-entries"></ul>
+      </div>
+    </section>
+    <section class="resources">
+      <h2>Resources</h2>
+      <p>While MindWell can help track your mood, it cannot replace professional help. Here are some resources that can provide additional support:</p>
+      <ul>
+        <li><a href="https://www.nami.org/">National Alliance on Mental Illness (NAMI)</a></li>
+        <li><a href="https://www.mentalhealth.gov/">MentalHealth.gov</a></li>
+        <li><a href="https://suicidepreventionlifeline.org/">National Suicide Prevention Lifeline</a></li>
+      </ul>
+    </section>
+  </main>
+  <script>
+    // Select the mood selector element
+    const moodSelector = document.querySelector('.mood-selector');
+
+    // Select the mood history list element
+    const moodEntries = document.getElementById('mood-entries');
+
+    // Function to create a new mood entry list item
+    function createMoodEntry(mood) {
+      const listItem = document.createElement('li');
+      const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      listItem.textContent = `${time} - ${mood}`;
+      return listItem;
+    }
+
+    // Add a click event listener to the mood selector
+    moodSelector.addEventListener('click', (event) => {
+      // Check if the clicked element is a mood button
+      if (event.target.classList.contains('mood-button')) {
+        const selectedMood = event.target.dataset.mood;
+
+        // Create a new mood entry list item
+        const moodEntry = createMoodEntry(selectedMood);
+
+        // Add the new entry to the mood history list
+        moodEntries.appendChild(moodEntry);
+      }
+    });
+  </script>
+</body>
+</html>

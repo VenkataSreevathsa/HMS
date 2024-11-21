@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consult Today - Mother's Care</title>
+    <style>
+        
+        /* CSS styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color:#458ff6; /* Multicolor background */
+            background-size: 600% 600%;
+            animation: gradientAnimation 10s ease infinite;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #fff; /* White text color */
+        }
+
+        header p {
+            font-size: 16px;
+            color: #fff; /* White text color */
+        }
+
+        main {
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .team-member img {
+            width: 120px; /* Medium size for images */
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 20px;
+            transition: transform 0.3s ease; /* Add transition */
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .team-member img:hover {
+            transform: scale(1.1); /* Enlarge image on hover */
+        }
+
+        form {
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        form label, form input[type="submit"] {
+            display: block;
+            margin-bottom: 10px;
+            color: #fff; /* White text color */
+        }
+
+        form input[type="text"], form input[type="email"], form input[type="tel"], form input[type="datetime-local"] {
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+            transition: background-color 0.3s ease;
+        }
+
+        form input[type="text"]:focus, form input[type="email"]:focus, form input[type="tel"]:focus, form input[type="datetime-local"]:focus {
+            background-color: rgba(255, 255, 255, 0.9); /* Lighten background on focus */
+        }
+
+        form input[type="submit"] {
+            background-color: #4CAF50; /* Green submit button */
+            color: #fff; /* White text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+    <script>
+        var myRequest = new XMLHttpRequest();
+        myRequest.onreadystatechange=function()
+        {
+            if(myRequest.readyState==4){
+                document.getElementById('ajax-content').innerHTML= myRequest.responseText;
+            }
+        };
+        function sendTheAJAX(){
+            myRequest.open('GET','thankyou.html');
+            myRequest.send();
+            document.getElementById('reveal').style.display='none';
+        }
+        </script>
+</head>
+<body>
+
+    <header><center>
+        <h1>Consult Today</h1>
+        <p>Request a consultation with one of our healthcare professionals.</p></center>
+    </header>
+    <main>
+        <!-- Consultation form -->
+        <form action="thankyou.html" method="post" name="google-sheet">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name"><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email"><br>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"><br>
+            
+         
+                <label for="datetime">Select a date and time:</label>
+                <input type="datetime-local" id="datetime" name="datetime"><br><br>
+                <center>
+                <input type="submit" value="Submit" onclick="sendTheAJAX()" name="submit"></center>
+            
+            
+        </form>
+        <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwdCw8DM1RUP50HIgeNkmKZltZ-wDQhGSSR88Mbs9FdadLcfXtuXtGMTNSbAvHe5kJt-w/exec';
+const form = document.forms['google-sheet'];
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch(scriptURL, {
+        method: 'POST',
+        body: new FormData(form)
+    })
+    .then(response => {
+        alert("Thanks for Contacting! We Will Contact You Soon...");
+        form.reset(); // Reset the form after successful submission if needed
+    })
+    .catch(error => console.error('Error:', error));
+});
+         </script>
+
+    </main>
+    <footer>
+        <!-- Include footer content here -->
+    </footer>
+</body>
+</html>

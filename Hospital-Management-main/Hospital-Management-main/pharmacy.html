@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablet Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #458ff6;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        .result p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tablet Information</h1>
+        <p>Select a tablet to view its details:</p>
+        <select id="tabletDropdown" onchange="displayTabletInfo()">
+            <option value="" disabled selected>Select a tablet</option>
+        </select>
+        <div class="result" id="result">
+            <!-- Tablet details will appear here -->
+        </div>
+    </div>
+
+    <script>
+        // Tablet data
+        const tabletData = {
+            "Paracetamol": {
+                benefits: "Relieves pain and reduces fever.",
+                chemicalCombinations: "Acetaminophen, Caffeine, Codeine"
+            },
+            "Ibuprofen": {
+                benefits: "Reduces inflammation, pain, and fever.",
+                chemicalCombinations: "Ibuprofen, Paracetamol, Caffeine"
+            },
+            "Aspirin": {
+                benefits: "Relieves pain, fever, and inflammation.",
+                chemicalCombinations: "Acetylsalicylic acid"
+            },
+            "Amoxicillin": {
+                benefits: "Treats bacterial infections.",
+                chemicalCombinations: "Amoxicillin, Clavulanic acid"
+            },
+            "Ciprofloxacin": {
+                benefits: "Treats bacterial infections, including UTIs.",
+                chemicalCombinations: "Ciprofloxacin, Tinidazole"
+            },
+            "Metformin": {
+                benefits: "Manages blood sugar levels in diabetes.",
+                chemicalCombinations: "Metformin, Sitagliptin"
+            },
+            "Atorvastatin": {
+                benefits: "Lowers cholesterol and prevents heart disease.",
+                chemicalCombinations: "Atorvastatin, Ezetimibe"
+            },
+            "Losartan": {
+                benefits: "Treats high blood pressure and protects kidneys.",
+                chemicalCombinations: "Losartan, Hydrochlorothiazide"
+            },
+            "Pantoprazole": {
+                benefits: "Reduces stomach acid, treats acid reflux.",
+                chemicalCombinations: "Pantoprazole, Domperidone"
+            },
+            "Cetirizine": {
+                benefits: "Relieves allergy symptoms.",
+                chemicalCombinations: "Cetirizine, Ambroxol"
+            },
+            "Clopidogrel": {
+                benefits: "Prevents blood clots.",
+                chemicalCombinations: "Clopidogrel, Aspirin"
+            },
+            "Omeprazole": {
+                benefits: "Treats acid reflux and stomach ulcers.",
+                chemicalCombinations: "Omeprazole, Sodium bicarbonate"
+            },
+            "Montelukast": {
+                benefits: "Treats asthma and allergies.",
+                chemicalCombinations: "Montelukast, Levocetirizine"
+            },
+            "Doxycycline": {
+                benefits: "Treats bacterial infections and acne.",
+                chemicalCombinations: "Doxycycline, Lactobacillus"
+            },
+            "Amlodipine": {
+                benefits: "Treats high blood pressure and chest pain.",
+                chemicalCombinations: "Amlodipine, Valsartan"
+            },
+            "Prednisone": {
+                benefits: "Reduces inflammation in various conditions.",
+                chemicalCombinations: "Prednisone"
+            },
+            "Levofloxacin": {
+                benefits: "Treats bacterial infections, including pneumonia.",
+                chemicalCombinations: "Levofloxacin"
+            },
+            "Ranitidine": {
+                benefits: "Reduces stomach acid production.",
+                chemicalCombinations: "Ranitidine"
+            },
+            "Tramadol": {
+                benefits: "Relieves moderate to severe pain.",
+                chemicalCombinations: "Tramadol, Paracetamol"
+            },
+            "Fluconazole": {
+                benefits: "Treats fungal infections.",
+                chemicalCombinations: "Fluconazole"
+            }
+        };
+
+        // Populate the dropdown with tablet names
+        const dropdown = document.getElementById("tabletDropdown");
+        for (let tablet in tabletData) {
+            const option = document.createElement("option");
+            option.value = tablet;
+            option.textContent = tablet;
+            dropdown.appendChild(option);
+        }
+
+        // Display tablet info
+        function displayTabletInfo() {
+            const selectedTablet = dropdown.value;
+            const resultDiv = document.getElementById("result");
+
+            if (selectedTablet) {
+                const data = tabletData[selectedTablet];
+                resultDiv.innerHTML = `
+                    <p><strong>Benefits:</strong> ${data.benefits}</p>
+                    <p><strong>Chemical Combinations:</strong> ${data.chemicalCombinations}</p>
+                `;
+            } else {
+                resultDiv.innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>

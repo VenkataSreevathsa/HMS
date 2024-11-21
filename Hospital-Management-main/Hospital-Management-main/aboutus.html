@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About US - Mother's Care</title>
+    <style>
+        /* CSS styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #007bff; /* Light blue background */
+            margin: 0;
+            padding: 0;
+        }
+
+        header, main, footer {
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color:#fff
+        }
+
+        header p {
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .about-section {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: left;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .about-section p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        header h4 {
+       
+        
+        color: hsl(0, 0%, 100%);
+        
+    }
+        
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .team-member img {
+            width: 120px; /* Medium size for images */
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 20px;
+            transition: transform 0.3s ease; /* Add transition */
+        }
+
+        .team-member img:hover {
+            transform: scale(1.1); /* Enlarge image on hover */
+        }
+
+        .team-member p {
+            font-size: 16px;
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+        <p>
+            <h4> Virtual Healthcare, we are committed to revolutionizing the way healthcare is delivered by harnessing the power of technology to make medical services 
+            more accessible, efficient, and patient-centric.Founded in 2003, Virtual Healthcare aims to bridge the gap between patients and healthcare providers, 
+            regardless of geographical barriers.</h4>
+        </p>
+    </header>
+    <main>
+        <div class="about-section">
+            <h2>Our Mission</h2>
+            <p>Our mission is to empower individuals to take control of their health 
+                by providing convenient access to high-quality healthcare services anytime, anywhere. 
+                We believe that everyone deserves timely medical attention and personalized care, 
+                we strive to make this a reality through our innovative platform.
+            </p>
+        </div>
+        <div class="about-section">
+            <h2>Our Founders</h2>
+            <div class="team-member">
+                <img src="assets/images/me.JPG" alt="Anggota Tim 1">
+                <p><h3> Venkata Sreevathsa G - CEO</h3></p>
+            </div>
+            <div class="team-member">
+                <img src="assets/images/gagan.jpg" alt="Anggota Tim 2">
+                <p><h3> Gagan Raam S - CTO</h3></p>
+            </div>
+            <div class="team-member">
+                <img src="assets/images/uday.JPG" alt="Anggota Tim 3">
+                <p><h3> Udaya T K - COO</h3></p>
+            </div>
+        </div>
+        <!-- Add more sections as needed -->
+    </main>
+    <footer>
+        <!-- Include footer content here -->
+    </footer>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Sign Up</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f6f6f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-container {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="nav nav-tabs" id="authTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="sign-in-tab" data-toggle="tab" href="#sign-in" role="tab" aria-controls="sign-in" aria-selected="true">Sign In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="sign-up-tab" data-toggle="tab" href="#sign-up" role="tab" aria-controls="sign-up" aria-selected="false">Sign Up</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="authTabContent">
+            <div class="tab-pane fade show active" id="sign-in" role="tabpanel" aria-labelledby="sign-in-tab">
+                <div class="form-container">
+                    <form id="signInForm">
+                        <div class="form-group">
+                            <label for="signInEmail">Email</label>
+                            <input type="email" class="form-control" id="signInEmail" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signInPassword">Password</label>
+                            <input type="password" class="form-control" id="signInPassword" placeholder="Password" required>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" onclick="signIn()">Sign In</button>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="sign-up" role="tabpanel" aria-labelledby="sign-up-tab">
+                <div class="form-container">
+                    <form id="signUpForm">
+                        <div class="form-group">
+                            <label for="signUpUsername">Username</label>
+                            <input type="text" class="form-control" id="signUpUsername" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signUpEmail">Email</label>
+                            <input type="email" class="form-control" id="signUpEmail" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signUpPassword">Password</label>
+                            <input type="password" class="form-control" id="signUpPassword" placeholder="Password" required>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" onclick="signUp()">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function signIn() {
+            // Perform sign-in validation here
+            // For demonstration, assume sign-in is successful and redirect to patients' records page
+            window.location.href = "patients.html";
+        }
+
+        function signUp() {
+            // Perform sign-up validation here
+            // For demonstration, assume sign-up is successful and redirect to patients' records page
+            window.location.href = "patients.html";
+        }
+    </script>
+</body>
+</html>
